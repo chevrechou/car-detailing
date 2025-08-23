@@ -1,0 +1,33 @@
+.siteFooter {
+  border-top: 1px solid var(--border);
+  padding: 2rem 0;
+  color: var(--muted);
+  font-size: .95rem;
+  background: #ffffff80;
+  text-align: center;
+}
+
+.links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.links a {
+  color: var(--text);
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f2f5fa;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.links a:hover {
+  background: var(--accent);
+  color: #fff;
+}

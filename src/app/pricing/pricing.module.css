@@ -1,0 +1,58 @@
+.wrap {
+  margin-top: 0.5rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.table thead th {
+  background: #f8fafc;
+  font-weight: 700;
+}
+
+.table th,
+.table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.pkgTitle {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-weight: 800;
+  white-space: normal;
+}
+
+.dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  background: #b91c1c;
+  border-radius: 50%;
+  display: inline-block;
+  flex: 0 0 0.55rem;
+}
+
+.pkgDesc {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-top: 0.3rem;
+  white-space: normal;
+}
+
+.pkgNote {
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  white-space: normal;
+}

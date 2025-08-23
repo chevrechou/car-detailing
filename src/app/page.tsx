@@ -1,25 +1,43 @@
+import Link from "next/link";
+import styles from "./page.module.css";
+
 export default function HomePage() {
   return (
     <section>
-      <h1>Premium Car Detailing in Your City</h1>
-      <p>
-        Interior and exterior detailing, paint correction, and ceramic coating.
-        We come to you or book in shop.
-      </p>
-      <div className="grid">
-        <div className="card">
-          <h3>Interior Deep Clean</h3>
-          <p>Steam clean, shampoo, leather treatment, odor neutralizer.</p>
-        </div>
-        <div className="card">
-          <h3>Exterior Perfection</h3>
-          <p>Hand wash, clay bar, machine polish, sealant or wax.</p>
-        </div>
-        <div className="card">
-          <h3>Ceramic Coating</h3>
-          <p>Long lasting protection and insane gloss.</p>
+      <div className={styles.homeHero} aria-label="Hero video of a detailed car">
+        <video
+          className={styles.heroMedia}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+        >
+          <source src="/car/car-wash.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        <div className={styles.heroOverlay}>
+          <h1 className={styles.heroTitle}>Pay Attention 2 Detail</h1>
+          <p className={styles.heroSubtitle}>
+            Professional. Fast. Reliable. Mobile car detailing in Dallas with clean interiors, glossy paint, and simple pricing.
+          </p>
+
+          {/* moved inside overlay */}
+          <div className={styles.badges}>
+            <span className={styles.badge}>Mobile service</span>
+            <span className={styles.badge}>Clear quotes</span>
+            <span className={styles.badge}>Satisfaction focused</span>
+          </div>
+
+          <div className={styles.heroActions}>
+            <Link href="/services" className={styles.btnPrimary}>View Services</Link>
+            <Link href="/contact" className={styles.btnGhost}>Book Now</Link>
+          </div>
         </div>
       </div>
+
+      {/* keep the rest of your homepage sections here */}
     </section>
   );
 }

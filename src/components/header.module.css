@@ -1,0 +1,135 @@
+.siteHeader {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand a {
+  color: var(--text);
+  font-weight: 800;
+  text-decoration: none;
+  font-size: 2rem;
+  letter-spacing: .2px;
+}
+
+/* Nav links (desktop) */
+.nav a {
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  transition: background 0.2s ease;
+}
+
+.nav a:hover {
+  background: #f2f5fa;
+}
+
+/* highlight active page */
+.active {
+  background: #bcd9fa;
+  border: 2px solid #7698f5 !important;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.cta {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff !important;
+  font-weight: 700;
+  border-color: transparent;
+}
+
+/* Mobile menu button */
+.menuButton {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+.bar {
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform .18s ease, opacity .18s ease;
+}
+
+/* Animate bars into an X when open */
+.menuOpen .bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.menuOpen .bar:nth-child(2) {
+  opacity: 0;
+}
+.menuOpen .bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Mobile dropdown with animation */
+@media (max-width: 768px) {
+  .nav {
+    position: absolute;
+    top: 100%;
+    right: 1.25rem;
+    left: 1.25rem;
+    background: #fff;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  /* Open state uses keyframed drop animation */
+  .nav.open {
+    pointer-events: auto;
+    animation: navDrop .22s ease-out forwards;
+  }
+
+  .menuButton {
+    display: flex;
+  }
+}
+
+/* Keyframes for dropdown */
+@keyframes navDrop {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .nav,
+  .bar {
+    transition: none;
+    animation: none;
+  }
+}
