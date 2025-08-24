@@ -1,3 +1,4 @@
+/* Header shell */
 .siteHeader {
   position: sticky;
   top: 0;
@@ -7,50 +8,64 @@
   border-bottom: 1px solid var(--border);
 }
 
+/* Row */
 .container {
-  max-width: 1080px;
   margin: 0 auto;
-  padding: 0.75rem 1.25rem;
+  padding: 1rem 2.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
 }
 
+/* Brand */
 .brand a {
   color: var(--text);
   font-weight: 800;
   text-decoration: none;
   font-size: 2rem;
   letter-spacing: .2px;
+  white-space: nowrap; /* prevent wrap */
+  line-height: 1.05;
 }
 
-/* Nav links (desktop) */
+/* Nav base (desktop) */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
 .nav a {
   color: var(--text);
   text-decoration: none;
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
   border: 1px solid transparent;
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, border-color .2s ease;
+  white-space: nowrap; /* prevent wrap */
 }
 
 .nav a:hover {
   background: #f2f5fa;
+  border-color: var(--border);
 }
 
-/* highlight active page */
+/* Active page underline */
 .active {
-  background: #bcd9fa;
-  border: 2px solid #7698f5 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 4px;
   font-weight: 700;
-  color: var(--text);
+  color: var(--accent);
 }
 
+/* CTA */
 .cta {
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   color: #fff !important;
   font-weight: 700;
   border-color: transparent;
+  white-space: nowrap; /* keep "Book Now" on one line */
 }
 
 /* Mobile menu button */
@@ -64,6 +79,7 @@
   cursor: pointer;
   padding: 6px;
 }
+
 .bar {
   width: 22px;
   height: 2px;
@@ -72,28 +88,28 @@
   transition: transform .18s ease, opacity .18s ease;
 }
 
-/* Animate bars into an X when open */
-.menuOpen .bar:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
-}
-.menuOpen .bar:nth-child(2) {
-  opacity: 0;
-}
-.menuOpen .bar:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
-}
+/* Animate bars into X when open */
+.menuOpen .bar:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.menuOpen .bar:nth-child(2) { opacity: 0; }
+.menuOpen .bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
-/* Mobile dropdown with animation */
+/* Mobile dropdown */
 @media (max-width: 768px) {
+  .container { padding: .85rem 1rem; }
+
+  .brand a { font-size: 1.6rem; }
+
+  .menuButton { display: flex; }
+
   .nav {
     position: absolute;
     top: 100%;
-    right: 1.25rem;
-    left: 1.25rem;
+    right: 1rem;
+    left: 1rem;
     background: #fff;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0.75rem;
+    padding: .75rem;
     border: 1px solid var(--border);
     border-radius: 10px;
     box-shadow: var(--shadow);
@@ -102,34 +118,22 @@
     transform: translateY(-8px);
   }
 
-  /* Open state uses keyframed drop animation */
+  /* Open state with drop animation */
   .nav.open {
     pointer-events: auto;
     animation: navDrop .22s ease-out forwards;
   }
 
-  .menuButton {
-    display: flex;
-  }
+  .nav a { width: 100%; } /* full width taps */
 }
 
-/* Keyframes for dropdown */
+/* Dropdown keyframes */
 @keyframes navDrop {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Respect reduced motion */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .nav,
-  .bar {
-    transition: none;
-    animation: none;
-  }
+  .nav, .bar { transition: none; animation: none; }
 }

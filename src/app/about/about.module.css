@@ -1,0 +1,64 @@
+.centerWrap {
+	max-width: 900px;
+	margin: 0 auto;
+	/* centers horizontally */
+	text-align: center;
+	/* center heading */
+	display: grid;
+	gap: 1.5rem;
+	margin-top: 2rem;
+
+}
+
+.profile {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.5rem;
+	min-height: 400px;
+}
+
+@media (min-width: 768px) {
+	.profile {
+		flex-direction: row;
+		/* side by side on desktop */
+		text-align: left;
+		/* left-align text next to photo */
+		justify-content: center;
+	}
+
+}
+
+.headshot {
+	position: relative;
+	width: 260px;
+	/* slightly larger on mobile */
+	height: 320px;
+	border-radius: 12px;
+	overflow: hidden;
+	box-shadow: var(--shadow);
+	background: #eef2f6;
+	flex-shrink: 0;
+	/* prevent it from collapsing in flex layouts */
+}
+
+.headshotImg {
+	object-fit: cover;
+}
+
+@media (min-width: 768px) {
+	.headshot {
+		width: 360px;
+		/* slightly larger on mobile */
+		height: 420px;
+	}
+}
+
+.bio {
+	max-width: 550px;
+	display: grid;
+	gap: 1rem;
+	line-height: 2rem;
+	font-size: 1.15rem;
+	text-align: left;
+}

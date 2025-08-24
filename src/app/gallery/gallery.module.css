@@ -1,6 +1,5 @@
 .grid {
   display: grid;
-  gap: 0.75rem;
   /* 3 columns for desktop, 2 for tablets, 1 for small phones */
   grid-template-columns: repeat(3, 1fr);
   margin-top: 0.75rem;
@@ -30,7 +29,8 @@
   position: relative;
   width: 100%;
   /* Set a stable tile aspect that looks good in a grid */
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 12;
+  /* taller display */
   background: #eef2f6;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .caption {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--muted);
   padding: 0.5rem 0.75rem 0.75rem;
 }

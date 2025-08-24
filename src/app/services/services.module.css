@@ -1,3 +1,4 @@
+/* Container */
 .wrap {
   display: grid;
   gap: 1rem;
@@ -8,30 +9,47 @@
   max-width: 72ch;
 }
 
-.grid {
+/* Alternating rows wrapper */
+.rows {
   display: grid;
-  grid-template-columns: 1fr; /* default single column for mobile */
   gap: 1rem;
-  margin-top: 0.5rem;
 }
 
-/* force 2x2 grid on larger screens */
+/* Base row: mobile-first stack */
+.row {
+  display: grid;
+  gap: 1rem;
+}
+
+/* Image comes first on mobile */
+.media { order: 1; }
+.text  { order: 2; }
+
+/* Desktop: equal height and alternate */
 @media (min-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
+  .row {
+    display: flex;
+    align-items: stretch;
+    gap: 1rem;
+    height: 350px;
   }
+
+  /* Reset order for desktop so alternation can apply */
+  .media, .text { order: initial; }
+
 }
 
-.card {
+/* Text card */
+.text {
+  flex: 1;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 12px;
   box-shadow: var(--shadow);
-  padding: 1rem;
-}
-
-.card h3 {
-  margin: 0 0 0.35rem;
+  padding: 2rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .muted {
@@ -44,16 +62,7 @@
   line-height: 1.7;
 }
 
-.addons {
-  margin-top: 1rem;
-}
-
-.addons ul {
-  margin: 0.25rem 0 0.5rem;
-  padding-left: 1.1rem;
-  line-height: 1.7;
-}
-
+/* Badge chip */
 .badge {
   display: inline-block;
   font-size: 0.8rem;
@@ -65,17 +74,48 @@
   margin-left: 0.4rem;
 }
 
+/* Media block aligned to text */
+.media {
+  flex: 1;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: #eef2f6;
+  min-height: 220px; /* ensures visible on mobile */
+}
+
+.media img {
+  object-fit: cover;  /* fills cleanly */
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+/* Add ons card */
+.addons {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  margin-top: 1rem;
+}
+.addons ul {
+  margin: 0.25rem 0 0.5rem;
+  padding-left: 1.1rem;
+  line-height: 1.7;
+}
+
+/* Bottom banner video */
 .bannerWrap {
   margin-top: 1rem;
   border-radius: 14px;
   overflow: hidden;
   box-shadow: var(--shadow);
-
-  /* fixed smaller height */
   height: 400px;
   position: relative;
-
-  /* optional: dark background so edges look clean */
   background: #000;
 }
 
@@ -87,4 +127,18 @@
   min-height: 100%;
   transform: translate(-50%, -50%);
   object-fit: cover;
+}
+
+/* Hide video on mobile */
+@media (max-width: 767px) {
+  .bannerWrap {
+    display: none;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .heroMedia {
+    animation: none;
+  }
 }

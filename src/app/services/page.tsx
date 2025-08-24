@@ -16,88 +16,114 @@ export default function ServicesPage() {
         Mobile service is available in the Dallas area.
       </p>
 
-      {/* 2x2 Grid */}
-      <div className={styles.grid}>
-        {/* Wash & Vac */}
-        <article className={styles.card}>
-          <h3>
-            Wash and Vac <span className={styles.badge}>Maintenance</span>
-          </h3>
-          <p className={styles.muted}>
-            Fast upkeep package that keeps daily drivers presentable between full details.
-          </p>
-          <ul className={styles.ul}>
-            <li>Hand wash with pH balanced soap</li>
-            <li>Vacuum and light dust of interior surfaces</li>
-            <li>Windows cleaned inside and out</li>
-            <li>Tires and rims cleaned</li>
-          </ul>
-        </article>
+      <div className={styles.rows}>
+        {/* 1. Wash and Vac — text then image */}
+        <div className={styles.row}>
+          <article className={styles.text}>
+            <h3>
+              Wash and Vac <span className={styles.badge}>Maintenance</span>
+            </h3>
+            <p className={styles.muted}>
+              Fast upkeep package that keeps daily drivers presentable between full details.
+            </p>
+            <ul className={styles.ul}>
+              <li>Hand wash with pH balanced soap</li>
+              <li>Vacuum and light dust of interior surfaces</li>
+              <li>Windows cleaned inside and out</li>
+              <li>Tires and rims cleaned</li>
+            </ul>
+          </article>
 
-        {/* Exterior Detail */}
-        <article className={styles.card}>
-          <h3>
-            Exterior Detail <span className={styles.badge}>Gloss</span>
-          </h3>
-          <p className={styles.muted}>
-            Restores gloss and smoothness with safe prep and protection.
-          </p>
-          <ul className={styles.ul}>
-            <li>Thorough hand wash and exterior glass clean</li>
-            <li>Wheel faces and tires cleaned</li>
-            <li>Clay treatment to remove bonded contaminants</li>
-            <li>Buff and polish to enhance clarity</li>
-            <li>Hand applied wax or sealant</li>
-          </ul>
-        </article>
+          <div className={styles.media}>
+            <Image
+              src="/services/service-1.jpg"
+              alt="Hand wash and vacuum service"
+              fill
+              priority
+            />
+          </div>
+        </div>
 
-        {/* Interior Detail */}
-        <article className={styles.card}>
-          <h3>
-            Interior Detail <span className={styles.badge}>Refresh</span>
-          </h3>
-          <p className={styles.muted}>
-            Deep clean that refreshes cabins and removes light odors.
-          </p>
-          <ul className={styles.ul}>
-            <li>Full vacuum including seats, carpets, and mats</li>
-            <li>Shampoo and condition fabrics and upholstery</li>
-            <li>Leather cleaned and conditioned</li>
-            <li>Interior glass, vents, and door jambs cleaned</li>
-          </ul>
-        </article>
+        {/* 2. Exterior Detail — image then text */}
+        <div className={styles.row}>
+          <div className={styles.media}>
+            <Image
+              src="/gallery/gallery-10.jpg"
+              alt="Exterior detail with polish and wax"
+              fill
+            />
+          </div>
 
-        {/* Complete Detail */}
-        <article className={styles.card}>
-          <h3>
-            Complete Exterior and Interior <span className={styles.badge}>Full</span>
-          </h3>
-          <p className={styles.muted}>
-            Our most popular package for vehicles that need a full refresh inside and out.
-          </p>
-          <ul className={styles.ul}>
-            <li>Exterior: wash, clay, polish, wax, wheels & glass</li>
-            <li>Interior: vacuum, shampoo and condition seats, mats, jambs</li>
-            <li>Engine compartment cleaning on request</li>
-          </ul>
-        </article>
+          <article className={styles.text}>
+            <h3>
+              Exterior Detail <span className={styles.badge}>Gloss</span>
+            </h3>
+            <p className={styles.muted}>
+              Restore gloss and smoothness with safe prep and durable protection.
+            </p>
+            <ul className={styles.ul}>
+              <li>Thorough hand wash and exterior glass clean</li>
+              <li>Wheel faces and tires cleaned</li>
+              <li>Clay treatment to remove bonded contaminants</li>
+              <li>Buff and polish to enhance clarity</li>
+              <li>Hand applied wax or sealant</li>
+            </ul>
+          </article>
+        </div>
+
+        {/* 3. Interior Detail — text then image */}
+        <div className={styles.row}>
+          <article className={styles.text}>
+            <h3>
+              Interior Detail <span className={styles.badge}>Refresh</span>
+            </h3>
+            <p className={styles.muted}>
+              Deep clean that refreshes cabins and removes light odors.
+            </p>
+            <ul className={styles.ul}>
+              <li>Full vacuum including seats, carpets, and mats</li>
+              <li>Shampoo and condition fabrics and upholstery</li>
+              <li>Leather cleaned and conditioned</li>
+              <li>Interior glass, vents, and door jambs cleaned</li>
+            </ul>
+          </article>
+
+          <div className={styles.media}>
+            <Image
+              src="/gallery/gallery-12.jpg"
+              alt="Interior detail with shampoo and conditioning"
+              fill
+            />
+          </div>
+        </div>
+
+        {/* 4. Complete Package — image then text */}
+        <div className={styles.row}>
+          <div className={styles.media}>
+            <Image
+              src="/services/service-2.jpg"
+              alt="Complete inside and out detail"
+              fill
+            />
+          </div>
+
+          <article className={styles.text}>
+            <h3>
+              Complete Exterior and Interior <span className={styles.badge}>Full Package</span>
+            </h3>
+            <p className={styles.muted}>
+              Our most popular package for vehicles that need a full refresh inside and out.
+            </p>
+            <ul className={styles.ul}>
+              <li>Exterior: wash, clay, polish, wax, wheels and glass</li>
+              <li>Interior: vacuum, shampoo and condition seats, mats, jambs</li>
+              <li>Engine compartment cleaning on request</li>
+            </ul>
+          </article>
+        </div>
       </div>
 
-      {/* Add ons */}
-      <div className={`${styles.card} ${styles.addons}`}>
-        <h3>Add ons and notes</h3>
-        <ul>
-          <li>Pet hair removal add 30–80 based on severity</li>
-          <li>Ozone odor treatment add 60</li>
-          <li>Engine bay detail add 25 with another service</li>
-          <li>Headlight restoration add 70</li>
-        </ul>
-        <p className={styles.muted}>
-          Final pricing depends on size and condition. Multi-vehicle and maintenance plans are available.
-        </p>
-      </div>
-
-      {/* Full-width image */}
+      {/* Full-width video banner (hidden on mobile via CSS) */}
       <div className={styles.bannerWrap}>
         <video
           className={styles.heroMedia}

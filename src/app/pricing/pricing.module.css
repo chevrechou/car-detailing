@@ -15,6 +15,7 @@
 .table thead th {
   background: #f8fafc;
   font-weight: 700;
+  font-size: 1.3rem;
 }
 
 .table th,
@@ -24,6 +25,7 @@
   text-align: left;
   vertical-align: top;
   white-space: nowrap;
+  font-size:1.2rem;
 }
 
 .pkgTitle {
@@ -34,18 +36,9 @@
   white-space: normal;
 }
 
-.dot {
-  width: 0.55rem;
-  height: 0.55rem;
-  background: #b91c1c;
-  border-radius: 50%;
-  display: inline-block;
-  flex: 0 0 0.55rem;
-}
-
 .pkgDesc {
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 1rem;
   margin-top: 0.3rem;
   white-space: normal;
 }
@@ -53,6 +46,158 @@
 .pkgNote {
   margin-top: 0.4rem;
   font-size: 0.9rem;
-  color: var(--muted);
+  color: var(--text);
   white-space: normal;
 }
+
+.checklist {
+  margin: .4rem 0 .6rem;
+  padding-left: 1.2rem;
+  color: var(--text);
+  font-size: .95rem;
+  line-height: 1.6;
+}
+
+.checklist li {
+  margin: .15rem 0;
+  list-style: none;
+  position: relative;
+}
+
+.checklist li::before {
+  content: "✓";
+  position: absolute;
+  left: -1.2rem;
+  color: #22c55e;
+  font-weight: bold;
+}
+
+.popular {
+  display: inline-block;
+  margin-left: .5rem;
+  padding: .2rem .5rem;
+  font-size: .75rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+/* existing styles above... */
+
+.checklist {
+  margin: .4rem 0 .6rem;
+  padding-left: 1.2rem;
+  color: var(--text);
+  font-size: .95rem;
+  line-height: 1.6;
+}
+.checklist li {
+  margin: .15rem 0;
+  list-style: none;
+  position: relative;
+}
+.checklist li::before {
+  content: "✓";
+  position: absolute;
+  left: -1.2rem;
+  color: #22c55e;
+  font-weight: bold;
+}
+
+.popular {
+  display: inline-block;
+  margin-left: .5rem;
+  padding: .2rem .5rem;
+  font-size: .75rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+/* Add ons card */
+.addonsCard {
+  margin-top: 1.25rem;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 1rem;
+}
+
+.addonsHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .75rem;
+  margin-bottom: .75rem;
+}
+
+.addonsHead h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.chipsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .6rem;
+}
+
+@media (min-width: 700px) {
+  .chipsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  .chipsGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .55rem .8rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #f9fbff;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  font-size: .95rem;
+  color: var(--text);
+  transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+  white-space: nowrap;
+}
+
+.chip:hover {
+  transform: translateY(-1px);
+  background: #f2f7ff;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+}
+
+.chip svg {
+  font-size: 1rem;
+  color: var(--accent);
+}
+
+/* note under chips */
+.addonsNote {
+  margin: .8rem 0 0;
+  color: var(--muted);
+  font-size: .98rem;
+  line-height: 1.5;
+}
+
+.price {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+
+

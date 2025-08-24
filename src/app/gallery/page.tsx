@@ -2,21 +2,21 @@ import Image from "next/image";
 import styles from "./gallery.module.css";
 
 const photos = [
-  { src: "/gallery/01.jpg", alt: "Sedan exterior after wash and wax" },
-  { src: "/gallery/02.jpg", alt: "SUV interior deep clean" },
-  { src: "/gallery/03.jpg", alt: "Glossy hood reflection after polish" },
-  { src: "/gallery/04.jpg", alt: "Wheel and tire detail close up" },
-  { src: "/gallery/05.jpg", alt: "Trunk vacuum and shampoo finish" },
-  { src: "/gallery/06.jpg", alt: "Headlight restoration before and after" },
-  { src: "/gallery/07.jpg", alt: "Ceramic coating water beading" },
-  { src: "/gallery/08.jpg", alt: "Leather cleaned and conditioned" },
-  { src: "/gallery/09.jpg", alt: "Black paint corrected swirl removal" },
-  { src: "/gallery/10.jpg", alt: "Engine bay detailed" },
-  { src: "/gallery/11.jpg", alt: "Dashboard dust free and matte finish" },
-  { src: "/gallery/12.jpg", alt: "Sunset shot with mirror finish" },
-  { src: "/gallery/13.jpg", alt: "Carpet shampoo lines" },
-  { src: "/gallery/14.jpg", alt: "Door jambs cleaned" },
-  { src: "/gallery/15.jpg", alt: "Full exterior reflection shot" },
+  { src: "/gallery/gallery-1.jpeg", alt: "SUV exterior after wash and wax" },
+  { src: "/gallery/gallery-2.jpg", alt: "Sedan interior deep clean" },
+  { src: "/gallery/gallery-3.jpg", alt: "Wheel and tire detail close up" },
+  { src: "/gallery/gallery-8.jpg", alt: "Sedan exterior after wash and wax" },
+  { src: "/gallery/gallery-6.jpeg", alt: "Hood cleaned and waxed" },
+  { src: "/gallery/gallery-9.jpg", alt: "Black leather cleaned and conditioned" },
+  { src: "/gallery/gallery-7.jpg", alt: "Seats thoroughly vacuumed and shampooed" },
+  { src: "/gallery/gallery-4.jpg", alt: "Hood detailed and wax finished" },
+  { src: "/gallery/gallery-5.jpg", alt: "Seats dust, crumbs, and stain removal" },
+  { src: "/gallery/gallery-10.jpg", alt: "Front hood and grille polished" },
+  { src: "/gallery/gallery-11.jpg", alt: "Door panel cleaned and dressed" },
+  { src: "/gallery/gallery-12.jpg", alt: "Leather seats deep-cleaned & conditioned" },
+  { src: "/gallery/gallery-13.jpg", alt: "Hood and front grille washed, decontaminated, and protected with wax" },
+  { src: "/gallery/gallery-14.jpg", alt: "Leather seats restored and conditioned" },
+  { src: "/gallery/gallery-15.jpg", alt: "Dashboard detailed and protected" },
 ];
 
 export const metadata = {
@@ -38,7 +38,6 @@ export default function GalleryPage() {
                 src={p.src}
                 alt={p.alt}
                 fill
-                sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 400px"
                 className={styles.img}
                 priority={i < 3}
               />

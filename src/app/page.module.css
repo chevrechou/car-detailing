@@ -2,13 +2,15 @@
 .homeHero {
   position: relative;
   width: 100%;
-  height: clamp(260px, 44vw, 500px);
+  height: clamp(360px, 50vw, 600px); /* taller everywhere */
   border-radius: 16px;
   overflow: hidden;
   box-shadow: var(--shadow);
   margin-bottom: 1rem;
   background: #000;
 }
+
+
 
 .heroMedia {
   width: 100%;
@@ -39,7 +41,7 @@
 
 .heroSubtitle {
   color: #eef2f6;
-  font-size: clamp(1rem, 2.2vw, 1.125rem);
+  font-size:  1.15rem;
   margin: 0 0 .75rem;
 }
 
@@ -146,4 +148,13 @@
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
   .heroOverlay { backdrop-filter: none; }
+}
+
+@media (max-width: 768px) {
+  .homeHero {
+    height: 650px; /* force taller hero on phones */
+  }
+  .badge{
+    font-size: 1rem;
+  }
 }
