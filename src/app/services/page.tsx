@@ -42,8 +42,6 @@ export default function ServicesPage() {
               priority
               loading="eager"
               sizes="(max-width: 768px) 100vw, 50vw"
-              placeholder="blur"
-              blurDataURL="/blur-placeholder.jpg"
             />
           </div>
         </div>
@@ -57,8 +55,6 @@ export default function ServicesPage() {
               fill
               loading="lazy"
               sizes="(max-width: 768px) 100vw, 50vw"
-              placeholder="blur"
-              blurDataURL="/blur-placeholder.jpg"
             />
           </div>
 
@@ -103,8 +99,6 @@ export default function ServicesPage() {
               fill
               loading="lazy"
               sizes="(max-width: 768px) 100vw, 50vw"
-              placeholder="blur"
-              blurDataURL="/blur-placeholder.jpg"
             />
           </div>
         </div>
@@ -118,8 +112,6 @@ export default function ServicesPage() {
               fill
               loading="lazy"
               sizes="(max-width: 768px) 100vw, 50vw"
-              placeholder="blur"
-              blurDataURL="/blur-placeholder.jpg"
             />
           </div>
 

@@ -46,8 +46,6 @@ export default function GalleryPage() {
                 sizes="(max-width: 560px) 100vw,
                        (max-width: 980px) 50vw,
                        33vw"
-                placeholder="blur"
-                blurDataURL="/blur-placeholder.jpg" // tiny base64 or static blur image
               />
             </div>
             <figcaption className={styles.caption}>{p.alt}</figcaption>
