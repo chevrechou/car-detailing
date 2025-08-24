@@ -21,7 +21,7 @@
   .mobileOnly {
     display: none;
   }
-  
+
 }
 
 /* ===== Desktop table styles (your original look) ===== */
@@ -100,7 +100,7 @@
 
 @media (max-width: 600px) {
   .popular {
-    margin-top:0.8rem;
+    margin-top: 0.8rem;
   }
 }
 
@@ -244,4 +244,51 @@
   margin: .8rem 0 0;
   color: var(--muted);
   font-size: .98rem;
+}
+
+/* Hide default marker */
+.disclosure > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Summary row styles */
+.summaryBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .75rem;
+  background: #f7fbff;
+  border: 1px solid var(--border);
+  padding: .55rem .9rem;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.disclosure[open] .summaryBtn {
+  background: #eef6ff;
+  border-color: #bfdbfe;
+}
+
+/* Chevron rotation */
+.chev {
+  transition: transform .35s ease;
+}
+.disclosure[open] .chev {
+  transform: rotate(180deg);
+}
+
+/* Animated open/close */
+.disclosureContent {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition:
+    max-height .45s ease,
+    opacity .35s ease;
+}
+
+.disclosure[open] .disclosureContent {
+  max-height: 520px; /* fallback: enough room for pricing rows */
+  opacity: 1;
 }

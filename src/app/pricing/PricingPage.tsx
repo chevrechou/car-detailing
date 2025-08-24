@@ -1,9 +1,47 @@
 "use client";
 
 import styles from "./pricing.module.css";
-import { FaPaw, FaWind, FaTools, FaLightbulb, FaCheckCircle } from "react-icons/fa";
+import { FaPaw, FaWind, FaTools, FaLightbulb } from "react-icons/fa";
 
 export default function PricingPage() {
+  function toggle(e: React.SyntheticEvent<HTMLDetailsElement>) {
+    const el = e.currentTarget;
+    const content = el.querySelector<HTMLElement>("[data-content]");
+    if (!content) return;
+
+    if (el.open) {
+      // Opening: set maxHeight to scrollHeight
+      content.style.maxHeight = content.scrollHeight + "px";
+      content.style.opacity = "1";
+
+      // After transition, remove maxHeight so it adapts to content changes
+      content.addEventListener(
+        "transitionend",
+        () => {
+          content.style.maxHeight = "none";
+        },
+        { once: true }
+      );
+    } else {
+      // Closing: set fixed height first, then shrink to 0
+      content.style.maxHeight = content.scrollHeight + "px";
+      requestAnimationFrame(() => {
+        content.style.maxHeight = "0px";
+        content.style.opacity = "0";
+      });
+
+      // Prevent instant snap → temporarily force it to stay open until animation ends
+      el.open = true;
+      content.addEventListener(
+        "transitionend",
+        () => {
+          el.open = false; // now let it actually close
+        },
+        { once: true }
+      );
+    }
+  }
+
   return (
     <section className={styles.wrap}>
       <h1>Pricing</h1>
@@ -102,12 +140,19 @@ export default function PricingPage() {
               <li>Tires and rims cleaned and dressed</li>
             </ul>
             <p className={styles.note}>Best for weekly or biweekly upkeep.</p>
-            <details className={styles.disclosure}>
-              <summary className={styles.summaryBtn}>View Pricing</summary>
-              <div className={styles.prices}>
-                <div className={styles.priceRow}><span>Cars</span><span className={styles.price}>$35</span></div>
-                <div className={styles.priceRow}><span>Small or Mid SUV</span><span className={styles.price}>$45</span></div>
-                <div className={styles.priceRow}><span>Large SUV or Truck</span><span className={styles.price}>$60</span></div>
+
+            {/* animated details */}
+            <details className={styles.disclosure} onToggle={toggle}>
+              <summary className={styles.summaryBtn}>
+                <span>View Pricing</span>
+                <span className={styles.chev} aria-hidden>▾</span>
+              </summary>
+              <div className={styles.disclosureContent}>
+                <div className={styles.prices}>
+                  <div className={styles.priceRow}><span>Cars</span><span className={styles.price}>$35</span></div>
+                  <div className={styles.priceRow}><span>Small or Mid SUV</span><span className={styles.price}>$45</span></div>
+                  <div className={styles.priceRow}><span>Large SUV or Truck</span><span className={styles.price}>$60</span></div>
+                </div>
               </div>
             </details>
           </article>
@@ -123,12 +168,19 @@ export default function PricingPage() {
               <li>Exterior glass cleaned</li>
             </ul>
             <p className={styles.note}>Great when paint feels rough or looks dull.</p>
-            <details className={styles.disclosure}>
-              <summary className={styles.summaryBtn}>View Pricing</summary>
-              <div className={styles.prices}>
-                <div className={styles.priceRow}><span>Cars</span><span className={styles.price}>$150</span></div>
-                <div className={styles.priceRow}><span>Small or Mid SUV</span><span className={styles.price}>$175</span></div>
-                <div className={styles.priceRow}><span>Large SUV or Truck</span><span className={styles.price}>$200</span></div>
+
+            {/* animated details */}
+            <details className={styles.disclosure} onToggle={toggle}>
+              <summary className={styles.summaryBtn}>
+                <span>View Pricing</span>
+                <span className={styles.chev} aria-hidden>▾</span>
+              </summary>
+              <div className={styles.disclosureContent}>
+                <div className={styles.prices}>
+                  <div className={styles.priceRow}><span>Cars</span><span className={styles.price}>$150</span></div>
+                  <div className={styles.priceRow}><span>Small or Mid SUV</span><span className={styles.price}>$175</span></div>
+                  <div className={styles.priceRow}><span>Large SUV or Truck</span><span className={styles.price}>$200</span></div>
+                </div>
               </div>
             </details>
           </article>
@@ -137,19 +189,26 @@ export default function PricingPage() {
           <article className={styles.card}>
             <h3 className={styles.cardTitle}>Interior Detail</h3>
             <ul className={styles.checklist}>
-              <li><span className={styles.check}>✔️</span>Complete vacuum of seats, carpets, and mats</li>
+              <li>Complete vacuum of seats, carpets, and mats</li>
               <li>Shampoo and fabric conditioning</li>
               <li>Leather cleaned and conditioned</li>
               <li>Vents and crevices brushed</li>
               <li>Interior glass cleaned</li>
             </ul>
             <p className={styles.note}>Add a wash for $15. Add engine compartment for $25.</p>
-            <details className={styles.disclosure}>
-              <summary className={styles.summaryBtn}>View Pricing</summary>
-              <div className={styles.prices}>
-                <div className={styles.priceRow}><span>Cars</span><span className={styles.price}>$150</span></div>
-                <div className={styles.priceRow}><span>Small or Mid SUV</span><span className={styles.price}>$175</span></div>
-                <div className={styles.priceRow}><span>Large SUV or Truck</span><span className={styles.price}>$200</span></div>
+
+            {/* animated details */}
+            <details className={styles.disclosure} onToggle={toggle}>
+              <summary className={styles.summaryBtn}>
+                <span>View Pricing</span>
+                <span className={styles.chev} aria-hidden>▾</span>
+              </summary>
+              <div className={styles.disclosureContent}>
+                <div className={styles.prices}>
+                  <div className={styles.priceRow}><span>Cars</span><span className={styles.price}>$150</span></div>
+                  <div className={styles.priceRow}><span>Small or Mid SUV</span><span className={styles.price}>$175</span></div>
+                  <div className={styles.priceRow}><span>Large SUV or Truck</span><span className={styles.price}>$200</span></div>
+                </div>
               </div>
             </details>
           </article>
@@ -169,12 +228,19 @@ export default function PricingPage() {
               <li>All glass cleaned inside and out</li>
             </ul>
             <p className={styles.note}>Ideal for seasonal resets or before selling.</p>
-            <details className={styles.disclosure}>
-              <summary className={styles.summaryBtn}>View Pricing</summary>
-              <div className={styles.prices}>
-                <div className={styles.priceRow}><span>Cars</span><span className={styles.price}>$275</span></div>
-                <div className={styles.priceRow}><span>Small or Mid SUV</span><span className={styles.price}>$325</span></div>
-                <div className={styles.priceRow}><span>Large SUV or Truck</span><span className={styles.price}>$375</span></div>
+
+            {/* animated details */}
+            <details className={styles.disclosure} onToggle={toggle}>
+              <summary className={styles.summaryBtn}>
+                <span>View Pricing</span>
+                <span className={styles.chev} aria-hidden>▾</span>
+              </summary>
+              <div className={styles.disclosureContent}>
+                <div className={styles.prices}>
+                  <div className={styles.priceRow}><span>Cars</span><span className={styles.price}>$275</span></div>
+                  <div className={styles.priceRow}><span>Small or Mid SUV</span><span className={styles.price}>$325</span></div>
+                  <div className={styles.priceRow}><span>Large SUV or Truck</span><span className={styles.price}>$375</span></div>
+                </div>
               </div>
             </details>
           </article>

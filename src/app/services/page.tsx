@@ -40,6 +40,10 @@ export default function ServicesPage() {
               alt="Hand wash and vacuum service"
               fill
               priority
+              loading="eager"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              placeholder="blur"
+              blurDataURL="/blur-placeholder.jpg"
             />
           </div>
         </div>
@@ -51,6 +55,10 @@ export default function ServicesPage() {
               src="/gallery/gallery-10.jpg"
               alt="Exterior detail with polish and wax"
               fill
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              placeholder="blur"
+              blurDataURL="/blur-placeholder.jpg"
             />
           </div>
 
@@ -93,6 +101,10 @@ export default function ServicesPage() {
               src="/gallery/gallery-12.jpg"
               alt="Interior detail with shampoo and conditioning"
               fill
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              placeholder="blur"
+              blurDataURL="/blur-placeholder.jpg"
             />
           </div>
         </div>
@@ -104,6 +116,10 @@ export default function ServicesPage() {
               src="/services/service-2.jpg"
               alt="Complete inside and out detail"
               fill
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              placeholder="blur"
+              blurDataURL="/blur-placeholder.jpg"
             />
           </div>
 

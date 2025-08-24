@@ -28,7 +28,9 @@ export default function GalleryPage() {
   return (
     <section>
       <h1>Gallery</h1>
-      <p className="muted">Recent work and finishes from Pay Attention 2 Detail.</p>
+      <p className="muted">
+        Recent work and finishes from Pay Attention 2 Detail.
+      </p>
 
       <div className={styles.grid} role="list">
         {photos.map((p, i) => (
@@ -39,7 +41,13 @@ export default function GalleryPage() {
                 alt={p.alt}
                 fill
                 className={styles.img}
-                priority={i < 3}
+                priority={i === 0} // only first image is priority
+                loading={i === 0 ? "eager" : "lazy"}
+                sizes="(max-width: 560px) 100vw,
+                       (max-width: 980px) 50vw,
+                       33vw"
+                placeholder="blur"
+                blurDataURL="/blur-placeholder.jpg" // tiny base64 or static blur image
               />
             </div>
             <figcaption className={styles.caption}>{p.alt}</figcaption>
