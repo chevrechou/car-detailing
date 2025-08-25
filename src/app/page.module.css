@@ -172,8 +172,14 @@
 
 @media (max-width: 768px) {
   .homeHero {
-    height: 650px;
+    height: 720px;
     /* force taller hero on phones */
+  }
+  .heroTitle{
+    font-size: 3rem;
+  }
+  .heroTitleDesc {
+    font-size: 1.8rem;
   }
 
   .badge {
