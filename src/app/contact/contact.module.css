@@ -1,222 +1,192 @@
 .wrap {
   display: grid;
-  gap: 1.25rem;
-}
-
-/* Hero */
-.hero {
-  position: relative;
-  width: 100%;
-  height: clamp(240px, 44vw, 520px);
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  background: #0b1324;
-}
-.media { object-fit: cover; }
-.heroOverlay {
-  position: absolute; inset: 0;
-  display: grid; place-items: center;
-  text-align: center;
-  background: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.35));
-}
-.heroTitle {
-  color: #fff; font-weight: 900; letter-spacing: .3px;
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
-}
-
-/* CTA strip */
-.ctaStrip {
-  background: #0a4c99;
-  color: #fff;
-  border-radius: 16px;
-  box-shadow: var(--shadow);
-  padding: clamp(1rem, 3vw, 1.5rem);
-  display: grid;
-  grid-template-columns: 1fr;
   gap: 1rem;
 }
-@media (min-width: 900px) {
-  .ctaStrip { grid-template-columns: repeat(3, 1fr); }
-}
-.ctaItem {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: .9rem;
-  align-items: center;
-  padding: .75rem;
-  border-radius: 12px;
-  background: rgba(255,255,255,.06);
-}
-.ctaIcon {
-  width: 58px; height: 58px;
-  display: grid; place-items: center;
-  border: 2px solid rgba(255,255,255,.7);
-  border-radius: 14px;
-  font-size: 1.6rem;
-}
-.ctaHeading {
-  text-transform: uppercase;
-  letter-spacing: .15em;
-  font-weight: 800;
-  opacity: .9;
-  margin-bottom: .2rem;
-  font-size: .95rem;
-}
-.ctaValue {
-  color: #fff; font-weight: 800;
-  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
-  text-decoration: none;
-}
 
-/* Card with generator */
-.card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  box-shadow: var(--shadow);
-  padding: 1.25rem;
-  max-width: 980px;
-  margin: 0 auto;
-}
-.title { margin: 0; font-weight: 900; font-size: clamp(1.25rem, 2.4vw, 1.6rem); }
-.lead { margin: .25rem 0 1rem; color: var(--muted); }
-
-.formGrid {
+/* Top row: steps left, CTA right */
+.topRow {
   display: grid;
+  gap: 1rem;
   grid-template-columns: 1fr;
-  gap: .75rem;
 }
-@media (min-width: 720px) {
-  .formGrid { grid-template-columns: 1fr 1fr; }
-}
-.field { display: grid; gap: .35rem; }
-.field span { font-weight: 700; }
-.field input {
-  background: #fff;
-  color: var(--text);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: .65rem .75rem;
-  outline: none;
-}
-.field input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(14,165,233,.15); }
-
-.preview { display: grid; gap: .35rem; margin-top: .75rem; }
-.preview span { font-weight: 700; }
-.preview textarea {
-  width: 100%; min-height: 120px; resize: vertical;
-  background: #fff; color: var(--text);
-  border: 1px solid var(--border); border-radius: 10px;
-  padding: .65rem .75rem; line-height: 1.5;
-}
-
-.actions {
-  display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .8rem;
-}
-.btnPrimary {
-  background: var(--accent); color: #fff; border: 1px solid transparent;
-  padding: .7rem 1rem; border-radius: 10px; font-weight: 800; text-decoration: none;
-  box-shadow: 0 6px 18px rgba(14,165,233,.28);
-}
-.btnPrimary:hover { filter: brightness(1.06); }
-.btnGhost {
-  background: #ffffff; color: var(--text); border: 1px solid var(--border);
-  padding: .7rem 1rem; border-radius: 10px; font-weight: 800; text-decoration: none;
-}
-.btnGhost:hover { background: #fff; }
-.btnLine {
-  background: transparent; color: var(--accent); border: 1px dashed var(--accent);
-  padding: .7rem 1rem; border-radius: 10px; font-weight: 800; text-decoration: none;
-}
-
-/* Bottom image */
-.banner {
-  position: relative;
-  width: 100%;
-  height: clamp(220px, 36vw, 380px);
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  background: #eef2f6;
-}
-
-/* Tweak mobile image height for more impact */
-@media (max-width: 560px) {
-  .hero { height: clamp(280px, 58vw, 520px); }
-  .banner { height: clamp(240px, 48vw, 420px); }
-}
-/* Wrap the copy button so the popover can anchor to it */
-.copyWrap {
-  position: relative;
-  display: inline-block;
-}
-
-/* Popover bubble */
-.pop {
-  position: absolute;
-  left: 50%;
-  bottom: calc(100% + 10px);
-  transform: translateX(-50%) scale(.95);
-  opacity: 0;
-  pointer-events: none;
-  background: #0f172a;
-  color: #fff;
-  font-weight: 700;
-  font-size: .9rem;
-  padding: .45rem .6rem;
-  border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, .25);
-  transition: opacity .18s ease, transform .18s ease;
-}
-
-/* Little caret */
-.popCaret {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-top: 8px solid #0f172a;
-}
-
-.popVisible {
-  opacity: 1;
-  transform: translateX(-50%) scale(1);
-}
-
-/* Respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .pop {
-    transition: none;
+@media (min-width: 960px) {
+  .topRow {
+    grid-template-columns: 1.5fr 1fr;
+    align-items: stretch; /* equal height */
   }
 }
 
-.serviceGroup {
-  border: none;
+/* Bottom row */
+.bottomRow {
+  display: grid;
+  gap: 0.9rem;
+}
+
+/* Steps card */
+.stepsCard {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.stepsCard h3 {
+  margin: 0 0 .5rem;
+  font-size: 1.4rem;
+}
+.stepsList {
   margin: 0;
-  padding: 0;
+  padding-left: 1.25rem;
+  line-height: 1.6;
+}
+
+/* CTA card */
+.callCard {
+  background: #0670f1da;
+  color: #fff;
+  border-radius: 14px;
+  padding: 1.1rem;
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: .6rem;
+  border: 3px solid #030303da;
+  height: 100%;
+}
+.callCard h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+.bigPhone a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 900;
+  letter-spacing: .3px;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.bigPhone a::before {
+  content: "📞";
+  font-size: 1.2em;
+  display: inline-block;
+}
+.hours { opacity: .92; font-size: 1.15rem; }
+.btnHero {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  padding: .8rem 1rem;
+  border-radius: 10px;
+  font-weight: 900;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.3rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+}
+
+/* Form grid (12-column) */
+.formGrid {
+  display: grid;
+  gap: .75rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .formGrid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: start;
+  }
+}
+.col6  { grid-column: span 6; }
+.col12 { grid-column: 1 / -1; }
+
+.field {
+  display: grid;
+  gap: .35rem;
+}
+.field input, .preview textarea {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: .65rem .8rem;
+}
+
+/* Services radio group */
+.serviceGroup {
+  border: 0;
   display: grid;
   gap: .45rem;
+  grid-column: 1 / -1;
 }
-
-.serviceLegend {
-  font-weight: 700;
-  margin-bottom: .35rem;
-}
-
+.serviceLegend { font-weight: 700; margin-bottom: .2rem; }
 .serviceOption {
   display: flex;
   align-items: center;
   gap: .5rem;
-  font-size: .95rem;
   cursor: pointer;
 }
-
-/* optional: match brand color for the radios */
 .serviceOption input[type="radio"] {
   accent-color: var(--accent);
 }
+
+/* Preview and actions */
+.preview {
+  display: grid;
+  gap: .35rem;
+  grid-column: 1 / -1;
+}
+.preview textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+.actions {
+  display: flex;
+  gap: .6rem;
+  flex-wrap: wrap;
+  grid-column: 1 / -1;
+}
+
+.btnPrimary, .btnGhost, .btnLine {
+  display: inline-block;
+  padding: .75rem 1rem;
+  border-radius: 10px;
+  font-weight: 800;
+  text-decoration: none;
+}
+.btnPrimary { background: var(--accent); color: #fff; border: 1px solid transparent; }
+.btnGhost { background: #fff; border: 1px solid var(--border); color: var(--text); }
+.btnLine  { background: #fff; border: 1px dashed var(--accent); color: var(--accent); }
+
+/* Copy popover positioned above the button */
+.copyToast {
+  position: absolute;
+  bottom: 100%;         /* above the button */
+  left: 50%;
+  transform: translate(-50%, -8px); /* center align */
+  background: #111827;
+  color: #fff;
+  padding: .4rem .7rem;
+  border-radius: 6px;
+  font-size: .85rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,.25);
+  z-index: 10;
+}
+.copyToastVisible {
+  opacity: 1;
+  transform: translate(-50%, -12px); /* pop upward a bit */
+}
+.actions {
+  position: relative; /* anchor for the popover */
+  display: flex;
+  gap: .6rem;
+  flex-wrap: wrap;
+  grid-column: 1 / -1;
+}
+
