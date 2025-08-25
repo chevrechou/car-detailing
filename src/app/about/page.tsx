@@ -10,12 +10,12 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <section className={styles.centerWrap}>
-      <h1>About Us</h1>
+      <h1>About Me</h1>
 
       <div className={styles.profile}>
         <div className={styles.headshot}>
           <Image
-            src="/gallery/gallery-2.jpg" // replace with your real image path
+            src="/headshot.jpg"
             alt="Jeremy Smith - Mobile Detailer"
             fill
             className={styles.headshotImg}
@@ -35,7 +35,10 @@ export default function AboutPage() {
           <p>
             Whether you want a tidy daily driver or a weekend shine, I come to
             you with the right tools and a careful process. If you need your car
-            serviced, I am your person. Send me a message for pricing. I often
+            serviced, I am your person.
+          </p>
+          <p>
+            Send me a message for pricing. I often
             run specials and multi-vehicle discounts.
           </p>
         </div>

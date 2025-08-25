@@ -19,6 +19,7 @@ export default function HomePage() {
 
         <div className={styles.heroOverlay}>
           <h1 className={styles.heroTitle}>Pay Attention 2 Detail</h1>
+          <h2 className={styles.heroTitleDesc}>Professional Car Detailing</h2>
           <p className={styles.heroSubtitle}>
             Professional. Fast. Reliable. Mobile car detailing in Dallas with clean interiors, glossy paint, and simple pricing.
           </p>

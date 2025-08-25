@@ -2,7 +2,8 @@
 .homeHero {
   position: relative;
   width: 100%;
-  height: clamp(360px, 50vw, 600px); /* taller everywhere */
+  height: 700px;
+  /* taller everywhere */
   border-radius: 16px;
   overflow: hidden;
   box-shadow: var(--shadow);
@@ -15,7 +16,7 @@
 .heroMedia {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* works for <video> */
+  object-fit: cover;
   display: block;
 }
 
@@ -34,14 +35,22 @@
   color: #fff;
   font-weight: 900;
   letter-spacing: .3px;
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: 4rem;
   margin: 0 0 .45rem;
-  text-shadow: 0 2px 12px rgba(0,0,0,.4);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, .4);
+}
+
+.heroTitleDesc {
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: .3px;
+  font-size: 2.5rem;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, .4);
 }
 
 .heroSubtitle {
   color: #eef2f6;
-  font-size:  1.15rem;
+  font-size: 1.25rem;
   margin: 0 0 .75rem;
 }
 
@@ -52,6 +61,7 @@
   justify-content: center;
   flex-wrap: wrap;
   margin: 0 0 .85rem;
+
 }
 
 .badge {
@@ -62,7 +72,9 @@
   background: rgba(71, 71, 71, 0.998);
   border: 3px solid rgba(129, 129, 129, 0.78);
   color: #fff;
-  font-weight: 700;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+
 }
 
 /* CTA buttons inside overlay */
@@ -82,21 +94,27 @@
   border-radius: 10px;
   font-weight: 800;
   text-decoration: none;
-  box-shadow: 0 6px 18px rgba(14,165,233,.45);
+  box-shadow: 0 6px 18px rgba(14, 165, 233, .45);
 }
-.btnPrimary:hover { filter: brightness(1.06); }
+
+.btnPrimary:hover {
+  filter: brightness(1.06);
+}
 
 .btnGhost {
   display: inline-block;
-  background: rgba(255,255,255,.1);
+  background: rgba(255, 255, 255, .1);
   color: #fff;
-  border: 1px solid rgba(255,255,255,.45);
+  border: 1px solid rgba(255, 255, 255, .45);
   padding: .7rem 1rem;
   border-radius: 10px;
   font-weight: 800;
   text-decoration: none;
 }
-.btnGhost:hover { background: rgba(255,255,255,.16); }
+
+.btnGhost:hover {
+  background: rgba(255, 255, 255, .16);
+}
 
 /* Feature grid (top three cards) */
 .features {
@@ -138,7 +156,7 @@
 
 .quickLink:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(0,0,0,.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .08);
 }
 
 .icon {
@@ -147,14 +165,18 @@
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
-  .heroOverlay { backdrop-filter: none; }
+  .heroOverlay {
+    backdrop-filter: none;
+  }
 }
 
 @media (max-width: 768px) {
   .homeHero {
-    height: 650px; /* force taller hero on phones */
+    height: 650px;
+    /* force taller hero on phones */
   }
-  .badge{
+
+  .badge {
     font-size: 1rem;
   }
 }
