@@ -144,7 +144,9 @@
   border-radius: 12px;
   overflow: hidden;
   box-shadow: var(--shadow);
+  max-height: 500px;
 }
+
 .videoSection::after {
   content: "";
   position: absolute;
@@ -169,7 +171,7 @@
   display: grid;
   align-content: center;
   gap: .8rem;
-  padding: 2.25rem;
+  padding: 4.25rem;
   color: #fff;
   text-align: left;
   z-index: 2; 
