@@ -10,11 +10,13 @@ export default function Header() {
   const pathname = usePathname();
 
   const links = [
-    { href: "/services", label: "Services" },
-    { href: "/pricing", label: "Pricing" },
-    { href: "/gallery", label: "Gallery" },
-    { href: "/about", label: "About" },
-  ];
+  { href: "/services", label: "Services" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/gallery", label: "Gallery" },
+  { href: "/about", label: "About" },
+  { href: "/testimonials", label: "Testimonials" }, // ✅ new
+];
+
 
   return (
     <header className={styles.siteHeader}>
