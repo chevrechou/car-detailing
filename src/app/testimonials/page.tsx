@@ -121,6 +121,9 @@ export default function TestimonialsPage() {
 				</div>
 
 				{/* scroll-snap container for mobile swipe */}
+				<div> 
+					<h2>What others have said: </h2>
+				</div>
 				<div className={styles.carouselTrack} role="list">
 					{visible.map((rev) => (
 						<article key={rev.id} className={styles.reviewCard} role="listitem">
