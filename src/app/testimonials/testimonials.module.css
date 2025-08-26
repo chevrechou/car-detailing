@@ -281,7 +281,9 @@
   }
 
   .cta {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     padding: .6rem 0.7rem;
+    width: 100%;
+    text-align: center;
   }
 }
