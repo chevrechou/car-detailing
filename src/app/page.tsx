@@ -1,6 +1,11 @@
 import Link from "next/link";
 import styles from "./page.module.css";
 
+/** Update your video assets here */
+const VIDEO_POSTER = "/media/cleaning-poster.jpg";
+const VIDEO_WEBM = "/media/cleaning.webm";
+const VIDEO_MP4 = "/gallery/car-wash-clip.mp4";
+
 export default function HomePage() {
   return (
     <section>
@@ -43,42 +48,60 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* VIDEO SECTION with overlay copy */}
-      <section className={styles.videoSection} aria-label="Detailing in action">
-        <div className={styles.videoWrap}>
+      {/* WE COME TO YOU - text left + video right */}
+      <section className={styles.splitSection} aria-label="We come to you">
+        {/* Text left */}
+        <div className={styles.splitLeft}>
+          <h2 className={styles.splitTitle}>We come to you</h2>
+          <p className={styles.splitSubtitle}>
+            Save time and skip the shop. We bring professional detailing to your
+            home or office with clear pricing and easy scheduling. Our goal: a
+            spotless car that feels new and turns heads.
+          </p>
+
+          {/* Three bullet points */}
+          <ul className={styles.splitBullets}>
+            <li>
+              <strong>Fresh interiors</strong> – Deep clean for seats, carpets,
+              and vents, leaving a crisp scent and a cabin you’ll enjoy every
+              day.
+            </li>
+            <li>
+              <strong>Glossy, protected paint</strong> – Safe wash and premium
+              wax that enhance shine and shield your finish.
+            </li>
+            <li>
+              <strong>On time, every time</strong> – Reliable arrivals and clear
+              updates from booking to completion.
+            </li>
+          </ul>
+
+          <div className={styles.splitActions}>
+            <Link href="/pricing" className={styles.btnPricing}>
+              See Pricing
+            </Link>
+            <Link href="/contact" className={styles.btnPrimary}>
+              Book a Detail
+            </Link>
+          </div>
+        </div>
+
+        {/* Video right */}
+        <div className={styles.splitRight}>
           <video
-            className={styles.heroMedia}
+            className={styles.splitVideo}
             autoPlay
             loop
             muted
             playsInline
-            preload="auto"
+            preload="metadata"
+            poster={VIDEO_POSTER}
           >
-            <source src="/car/car-wash.mp4" type="video/mp4" />
+            <source src={VIDEO_MP4} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-
-          {/* Overlay text */}
-          <div className={styles.videoOverlay}>
-            <h3 className={styles.videoTitle}>We come to you</h3>
-            <p className={styles.videoSubtitle}>
-              Same week booking, clear pricing, and a finish that turns heads
-            </p>
-
-            <ul className={styles.videoBullets} aria-label="Key benefits">
-              <li>Interior refresh that feels brand new</li>
-              <li>Paint safe wash and wax for deep gloss</li>
-              <li>Fast communication and reliable arrival</li>
-            </ul>
-
-            <div className={styles.videoActions}>
-              <Link href="/pricing" className={styles.btnGhost}>See Pricing</Link>
-              <Link href="/contact" className={styles.btnPrimary}>Book a Detail</Link>
-            </div>
-          </div>
         </div>
       </section>
-
     </section>
   );
 }
