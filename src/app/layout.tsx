@@ -4,9 +4,11 @@ import { ReactNode } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-// app/layout.tsx
-export const metadata = {
-  metadataBase: new URL("https://your-domain.com"),
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://car-detailing-rouge.vercel.app";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Pay Attention 2 Detail",
   description:
     "Professional. Fast. Reliable. Mobile car detailing in Dallas with clean interiors and glossy paint.",
@@ -14,11 +16,11 @@ export const metadata = {
     title: "Pay Attention 2 Detail",
     description:
       "Professional. Fast. Reliable. Mobile car detailing in Dallas.",
-    url: "https://your-domain.com",
+    url: siteUrl,
     siteName: "Pay Attention 2 Detail",
     images: [
       {
-        url: "/thumbnail.jpg", 
+        url: "/thumbnail.jpg", // should be in /public folder
         width: 1200,
         height: 630,
         alt: "Pay Attention 2 Detail logo",
@@ -38,6 +40,7 @@ export const metadata = {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
