@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { ReactNode } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/react";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://car-detailing-rouge.vercel.app";
@@ -50,6 +51,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Header />
         <main className="container">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
