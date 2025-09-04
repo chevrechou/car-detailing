@@ -132,7 +132,7 @@ export default function TestimonialsPage() {
 			<section className={styles.topSection} aria-label="Featured testimonial">
 				<div className={styles.topLeft}>
 					<img
-						src="/happy-c.jpg"
+						src="/testiomonial.jpg"
 						alt="Happy client after car detailing"
 						className={styles.clientImg}
 					/>
